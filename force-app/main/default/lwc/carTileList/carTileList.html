@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="List" icon-name="standard:account">
+        <div class="slds-grid slds-wrap slds-p-around_x-small slds-grid_align-center">
+            <template if:true={images}>
+                <template if:true={cars}>
+                <template for:each={cars} for:item="c">
+                    <div class=" tile " key={c.Id} onclick={tileHandler} data-value={c.Id} >
+                        <img 
+                            src={c.imageURL} 
+                            alt="User Image"
+                            width="225px"
+                        />
+                        <p class="slds-text-heading_small"><strong>{c.Name}</strong></p>    
+                        <p>Daily Rate: ${c.Daily_Rate__c}</p>
+                    </div>
+                </template>
+            </template> 
+        </template> 
+        </div>
+    </lightning-card>
+</template>

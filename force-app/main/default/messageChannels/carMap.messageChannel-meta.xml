@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Lightning Message Channel that passes location of cars to google map.</description>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <description>locations of cars</description>
+        <fieldName>cars</fieldName>
+    </lightningMessageFields>
+    <masterLabel>selectedCarMessageChannel</masterLabel>
+</LightningMessageChannel>

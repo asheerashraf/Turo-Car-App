@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Car Card" icon-name="standard:apex_plugin">
+        <template if:false={carReceived}>
+            <div class="slds-text-align_center slds-m-around_large">
+                <lightning-icon size='large' icon-name="utility:travel_and_places" alternative-text="Car Icon" title="Car Icon"></lightning-icon>
+                <p class="slds-text-body_large slds-m-around_medium">Select a car to see details</p>
+            </div>
+        </template>
+        <template if:true={carReceived} >
+            
+            <img 
+            src={car.imageURL} 
+            alt="User Image"
+            />
+            <div class="slds-p-around_medium">
+            <table >
+                <tr>
+                  <td>Name: {car.Name}</td>
+                  <td>Daily Rate: ${car.Daily_Rate__c}</td>
+                </tr>
+                <tr>
+                    <td>Transmission: {car.Transmission__c}</td>
+                    <td>Type: {car.Vehicle_Type__c}</td>
+                </tr>
+                <tr>
+                    <td>Make: {car.Vehicle_Make__c}</td>
+                    <td>Year: {car.Vehicle_Year__c}</td>
+                </tr>
+
+              </table>
+                <p class="slds-p-top_small">Description: {car.Description__c}</p>
+            </div>
+        </template>
+        
+    </lightning-card>
+</template>

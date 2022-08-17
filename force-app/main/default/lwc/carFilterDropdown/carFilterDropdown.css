@@ -1,0 +1,41 @@
+.container{
+    padding-left: 8px;
+}
+
+.container lightning-button {
+    --slds-c-button-sizing-border: 1.5px;
+    --slds-c-button-text-color: black;
+    --slds-c-button-color-border: #e7e7e8;
+    --slds-c-button-radius-border: 4px;
+    --slds-c-button-text-color-hover: black;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+c-modal-car-filter lightning-button {
+    --slds-c-button-brand-color-background: #593cfb;
+    --slds-c-button-brand-color-border: #593cfb;
+    --slds-c-button-brand-color-background-active: #4709B4;
+    --slds-c-button-brand-color-background-hover: #4709B4;
+    --slds-c-button-brand-color-border-hover: #4709B4;
+    --slds-c-button-brand-spacing-inline-end: 20px;
+    --slds-c-button-brand-spacing-inline-start: 20px;
+    --slds-c-button-radius-border: 0px;
+}
+
+lightning-slider{
+    --slds-c-slider-thumb-color-foreground: #593cfb;
+
+    --slds-c-slider-thumb-color-foreground-focus: #4709B4;
+    --slds-c-slider-thumb-color-foreground-hover: #4709B4;
+    --slds-c-slider-thumb-color-foreground-active: #4709B4;
+    --slds-c-slider-thumb-shadow-focus: 0 0 5px #593cfb;
+}
+
+
+.close{
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 7px;
+}

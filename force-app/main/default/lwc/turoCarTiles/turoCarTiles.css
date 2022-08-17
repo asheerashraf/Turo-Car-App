@@ -1,0 +1,87 @@
+/*old:root{
+    --lwc-fontSize3: 1rem; 
+    --lwc-fontSize2: 0.875rem;
+    --lwc-fontSize5: 1.5rem;
+    --lwc-fontSize4: 1.25rem;
+    --lwc-fontSize8: 2.25rem;
+    --lwc-fontSize7: 2rem;
+    --lwc-fontSize6: 1.75rem;
+    --lwc-fontSize1: 0.8125rem;
+
+    
+    /* labels 
+    --lwc-fontSize3: 0.875rem; 
+    --lwc-fontSize2: 0.8125rem;
+    /* titles 
+    --lwc-fontSize5: 1.125rem;
+    --lwc-fontSize4: 1rem;
+    --lwc-fontSize8: 1.75rem;
+    --lwc-fontSize7: 1.5rem;
+    --lwc-fontSize6: 1.25rem;
+    --lwc-fontSize1: 0.75rem;
+
+}    */
+
+
+.tile{
+    /* margin: 0 23px 32px 0px; */
+      
+    border-radius: 4px;
+    box-shadow: rgb(18 18 20 / 10%) 0px 0px 1px, rgb(18 18 20 / 20%) 0px 2px 4px;
+    /* cursor: pointer; */
+}
+
+.tile img{
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+
+.price{
+    text-align: right;
+    border-top: 1px solid rgb(231, 231, 232);
+    padding: 16px 0px;
+    margin: 16px 16px 0px;
+}
+
+.noresultContainer{
+    text-align: center;
+    display: block;
+}
+
+.heading{
+    margin: 0px 0px 8px;
+    color: rgb(18, 18, 20);
+    font-family: RlBasisGrotesque,  Avenir,  Helvetica Neue,  Helvetica,  sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.2px;
+    line-height: 32px;
+    text-transform: none;
+}
+
+.subheading{
+    margin: 0px 0px 24px;
+    color: rgb(18, 18, 20);
+    text-align: center;
+    font-family: RlBasisGrotesque,  Avenir,  Helvetica Neue,  Helvetica,  sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 22px;
+    text-transform: none;
+}
+
+
+
+@media only screen and (min-width: 1024px){
+    .tile{
+        margin: 0 12px 0 12px;
+    }
+
+    .thumbs{
+        padding-left: 12px;
+    }
+}
+    
+    

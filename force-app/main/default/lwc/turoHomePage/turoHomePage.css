@@ -1,0 +1,145 @@
+.container{
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+}
+
+.searchContainer .slds-form-element{
+    margin-bottom: 0;
+}
+
+.citySearch{
+    width : 500px;
+}
+
+.banner{
+    position: absolute;
+}
+
+.mobileBanner{
+    height: 500px;
+    object-fit: cover;
+}
+
+.inputMiddle{
+    background-color: white;
+    padding: 0 10px;
+}
+
+.input-container input {
+    border: none;
+    box-sizing: border-box;
+    outline: 0;
+    position: relative;
+    width: 100%;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+.searchContainer label{
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.searchContainer .slds-input, .searchContainer .slds-input:focus, .searchContainer .slds-input:active {
+    --border-color : none;
+    box-shadow: none;
+}
+
+.circleButton{
+    background-color: rgb(89, 60, 251);
+    padding: 3px;
+    zoom: 120%;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+@media only screen and (min-width: 1024px){
+    .searchContainer{
+        position: absolute;
+        z-index: 5;
+        top: 25px;
+        bottom: 0;
+        left: 200px;
+        right: 200px;
+    }
+
+    .inputMiddle{
+        background-color: white;
+        padding: 10px;
+    }
+    
+    .inputBottom{
+        border-radius: 0 30px 30px 0;
+        padding: 10px;
+        background-color: white;
+    }
+    
+    .inputTop{  
+        border-radius: 30px 0 0 30px;
+        padding: 10px;
+        background-color: white;
+    }
+
+}
+
+@media only screen and (max-width: 1280px){
+    .searchContainer{
+        position: absolute;
+        z-index: 5;
+        top: 25px;
+        bottom: 0; 
+        left: 100px;
+        right: 100px;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+.searchContainer{
+    position: absolute;
+    z-index: 5;
+    top: 25px;
+    bottom: 0;
+    left: 150px;
+    right: 150px;
+}
+.buttonBottom{
+    border-radius: 0 0 10px 10px;
+    padding: 15px 10px 10px;
+    background-color: white;
+}
+
+.inputTop{
+    border-radius: 10px 10px 0 0;
+    padding: 10px 10px 0;
+    background-color: white;
+}
+
+.bottomBorder, .input-container input.bottomBorder{
+border-bottom: .5px grey solid;
+}
+}
+
+@media only screen and (max-width: 650px){
+    .searchContainer{
+        position: absolute;
+        z-index: 5;
+        top: 25px;
+        bottom: 0;
+        left: 25px;
+        right: 25px;
+    }
+}
+

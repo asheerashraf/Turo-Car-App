@@ -1,0 +1,51 @@
+<template>
+    <lightning-card title="Filters" icon-name="standard:calibration">
+        <div class="slds-m-horizontal_medium">
+
+            <!-- Search Box Filter-->
+            <lightning-input 
+                label="Search Car by name" 
+                type="search" 
+                value={filters.searchKey} 
+                onchange={searchKeyHandler}>
+            </lightning-input>
+
+            <!-- Slider Filter-->
+            <section class="slider slds-p-top_medium">
+                <lightning-slider label="Daily Rate USD" step="20" min="0" max="200"
+                value={filters.maxRate} onchange={sliderHandler}></lightning-slider>
+            </section>
+                
+            <!-- Vehicle Type Filter -->
+            <section class="type slds-p-vertical_small">
+                <h2>Type</h2>
+
+                <template if:true={type}>
+                    <template for:each={type} for:item="t">
+                        <lightning-input key={t} type="checkbox" label={t} 
+                        data-name='Vehicle_Type__c' data-value={t}  onchange={checkboxHandler}></lightning-input>        
+                    </template>
+                </template>  
+
+                <template if:false={type}>
+                    <p>{error}</p>
+                </template>
+            </section>
+
+            <!-- Vehicle Make Filter -->
+            <section class="make slds-p-vertical_small">
+                <h2>Make</h2>
+
+                <template for:each={make} for:item="m">  
+                    <lightning-input key={m} type="checkbox" label={m} 
+                    data-name='Vehicle_Make__c' data-value={m}  onchange={checkboxHandler}></lightning-input>
+                </template>
+
+                <template if:false={make}>
+                    <p>{error}</p>
+                </template>
+            </section>
+
+        </div>
+    </lightning-card>
+</template>

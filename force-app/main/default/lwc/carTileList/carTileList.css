@@ -1,0 +1,12 @@
+.tile{
+margin: 12px;
+    text-align: center;
+    border-style: solid;
+border-width: 1px;
+border-color: rgb(174 174 174);
+border-radius: 4px;
+box-shadow: rgb(18 18 20 / 10%) 0px 0px 1px, rgb(18 18 20 / 20%) 0px 2px 4px;
+cursor: pointer;
+}
+
+

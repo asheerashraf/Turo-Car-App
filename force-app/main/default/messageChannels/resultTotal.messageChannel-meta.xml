@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Search Result Total Lightning Message Channel.</description>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <description>Total number of search results</description>
+        <fieldName>results</fieldName>
+    </lightningMessageFields>
+    <masterLabel>resultTotal</masterLabel>
+</LightningMessageChannel>

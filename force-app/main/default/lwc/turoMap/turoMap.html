@@ -1,0 +1,16 @@
+<template>
+    <div >
+        <div class=" ">
+            <template if:true={mapMarkers3.length}>
+                <lightning-map class='map slds-is-fixed' list-view="hidden" 
+                    map-markers={mapMarkers3}
+                    markers-title="Account Location"
+                    onmarkerselect={selectHandler}
+                    selected-marker-value={valueHandler}
+                    options={mapOptions}
+                    zoom-level={zoomLevel}> 
+                </lightning-map>
+            </template>
+        </div>
+</div>
+</template>

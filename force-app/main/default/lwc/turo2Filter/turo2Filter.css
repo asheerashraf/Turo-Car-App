@@ -1,0 +1,42 @@
+:host{
+    --black: rgb(18, 18, 20);
+    --radius: 4px;
+    background-color: white;
+}
+
+.buttonContainer{
+    --dxp-s-button-color: var(--black);
+    --dxp-s-button-color-hover: var(--black);
+    --dxp-s-button-color-active: var(--black);
+    --dxp-s-button-text-decoration-active: var(--black);
+    --dxp-s-button-color-focus: var(--black);
+    --dxp-s-button-font-weight: 900;
+    --sds-c-button-radius-border: 4px;
+    padding-left: 12px;
+}
+
+.close{
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 7px;
+}
+
+.removeBottomMargin{
+    margin-bottom: 0;
+}
+
+.slds-slider-label__label{
+    font-weight: 700;
+}
+
+.mobilebutton{
+    font-size: 18px;
+    height: 45px;
+}
+
+@media only screen and (max-width: 1024px){
+.hide{
+    display: none;
+}
+}

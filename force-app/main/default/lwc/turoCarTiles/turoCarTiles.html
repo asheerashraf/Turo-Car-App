@@ -1,0 +1,45 @@
+<template>
+    <div class="slds-grid slds-wrap">
+    <div class="thumbs slds-col slds-size_1-of-1 slds-large-size_3-of-4 slds-p-top_large ">
+        <div class="slds-media slds-media_center slds-box slds-box_small">
+          <div class="slds-media__figure">
+            <span class="slds-avatar slds-avatar_large">
+              <img alt="Thumbs Up" src={thumbImage} title="Thumbs Up" />
+            </span>
+          </div>
+          <div class="slds-media__body">
+            <p>Don’t stress: you can cancel your trip for free, up to 24 hours before it starts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <template if:true={cars}>
+      <div class="slds-grid slds-wrap slds-p-vertical_large slds-grid_align-spread gap">
+            <template for:each={cars} for:item="c">
+                <div class='slds-col slds-size_1-of-1 slds-m-bottom_large slds-large-size_6-of-12' key={c.Id} onclick={tileHandler} data-value={c.Id} >
+                    <div class='tile'>
+                        <img src={c.Image_1__c} alt="User Image"/>
+                        <p class=" slds-p-horizontal_medium slds-p-top_small slds-text-heading_medium"><strong>{c.Name}</strong></p>    
+                        <div class=" price slds-p-horizontal_medium">
+                            <p><strong>${c.Daily_Rate__c}/day</strong> </p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+      </div>
+      <template if:true={noResults}>
+        <div class='noresultContainer'>
+            <img src={noresults} alt="User Image" style="width: 400px;"/>
+
+            <p class="heading slds-m-top_small">No cars found</p>
+
+            <p class="subHeading slds-m-bottom_medium">Try changing your filters</p>
+        
+        </div>
+      </template> 
+  </template> 
+
+
+
+</template>

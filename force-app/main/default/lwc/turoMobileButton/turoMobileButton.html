@@ -1,0 +1,20 @@
+<template>
+    <div class="slds-docked-form-footer dock">
+        <button type="button" class="slds-button slds-button_brand slds-hide listButton slds-p-vertical_small"
+        onclick={listButton}>
+            <img class="slds-button__icon slds-button__icon_left" aria-hidden="true" 
+            alt="list" src={list}></img>LIST</button>
+
+        <button type="button" class="slds-button slds-button_brand mapButton slds-p-vertical_small"
+        onclick={mapButton}>
+            <img class="slds-button__icon slds-button__icon_left" aria-hidden="true" 
+            alt="map" src={map}></img>MAP</button>
+
+            <!-- two buttons. on click hides other -->
+        <button type="button" 
+        class="slds-button slds-button_brand filterButton slds-p-vertical_small" 
+        onclick={filterClicked}>
+        <img class="slds-button__icon slds-button__icon_left" aria-hidden="true" 
+        alt="map" src={filter}></img> FILTERS </button>
+      </div>
+</template>

@@ -6,24 +6,22 @@ export default class TuroHeader extends LightningElement {
     logo = LOGO
     styled = false
 
+    //Getting current page reference
     @wire(CurrentPageReference)
     currentPageReference;
 
 
     renderedCallback() { 
-        console.log('rendered search')
         if(!this.styled){
             this.searchHeader();  
             this.styled = true; 
         }
     }
 
+    //Applying styling class dynamically
     searchHeader(){
-        console.log(this.currentPageReference.attributes.name );
         if(this.currentPageReference.attributes.name === 'searchResults__c'){
-            console.log('fire in hole')
             let hed = this.template.querySelector('.header');
-            console.log('hed',hed)
             hed.classList.add('searchHeader');
         }
     } 

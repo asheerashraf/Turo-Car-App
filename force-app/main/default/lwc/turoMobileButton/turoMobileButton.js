@@ -18,35 +18,38 @@ export default class TuroMobileButton extends LightningElement {
     @wire(MessageContext)
     context;
 
+    //registers when user clicks filter button
     filterClicked(){
         this.isClicked = true;
         this.publishMobileFilter();
     }
 
+    //sends data to turo2Filter component
     publishMobileFilter(){
         publish(this.context, mobilefilterMC, {isClicked:this.isClicked})
-        // this.isClicked=false;
     }
 
     mapButton(event){
+        //hides map button after user clicks map
         let map = event.target.classList
         map.add('slds-hide')
-
+        //shows map button after user clicks map
         let list = this.template.querySelector('.listButton')
         list.classList.remove('slds-hide')
 
-console.log('doc', document.documentElement.style)
+        //hides car list and shows map component
         document.documentElement.style.setProperty('--displayCars', 'none');
         document.documentElement.style.setProperty('--displayMap', 'flex');
     }
 
     listButton(event){
+        //hides list button after user clicks list
         let list = event.target.classList
         list.add('slds-hide')
-
+        //shows map button after user clicks list
         let map = this.template.querySelector('.mapButton')
         map.classList.remove('slds-hide')
-
+        //hides map component and shows car list
         document.documentElement.style.setProperty('--displayCars', 'flex');
         document.documentElement.style.setProperty('--displayMap', 'none');
     }

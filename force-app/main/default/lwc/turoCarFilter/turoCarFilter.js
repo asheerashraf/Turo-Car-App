@@ -38,8 +38,6 @@ export default class CarFilterDropdown extends LightningElement {
             this.typePicklist = data.picklistFieldValues.Vehicle_Type__c.values.map(item=>{
                 return {...item, checked: false}
             })
-
-            console.log('picklist111', this.typePicklist)
         }
         if(error){
             console.error(error);
@@ -56,13 +54,13 @@ export default class CarFilterDropdown extends LightningElement {
         }
     };
 
-    // Handles slider for vehicle day rate
+    // Handles user input on vehicle day rate (price) slider 
     priceHandler(event){
         this.filters = {...this.filters, 'maxRate':event.target.value}
         this.publishFilterinfo();
     }
 
-        // Handles checkbox for vehice type and make
+        // Handles user input on vehice type checkbox
         typeHandler(event){
             const {name, value} = event.target.dataset
     
@@ -74,15 +72,11 @@ export default class CarFilterDropdown extends LightningElement {
                 (this.filters.type.splice(this.filters.type.indexOf(value),1) , this.typePicklist.forEach(item =>{
                     if(item.value === value){item.checked = false;}})   
                 )
-
-                console.log('filter type',this.filters.type )    
-                console.log('picklist True', this.typePicklist ) 
             }       
-            
-    
             this.publishFilterinfo();
         }
 
+        // Handles user input on vehice make dropdown list
         makeHandler(event){
             this.selectedMake = event.currentTarget.value;
             this.filters = {...this.filters, 'make':this.selectedMake}
@@ -107,10 +101,6 @@ export default class CarFilterDropdown extends LightningElement {
         this.isMake = false;
         this.isPrice = false;
     }
-
-
-
-
 
 //used to send filter object to other components.
 publishFilterinfo(){

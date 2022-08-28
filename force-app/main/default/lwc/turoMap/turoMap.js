@@ -14,6 +14,7 @@ export default class Maps extends LightningElement {
     zoomLevel=12;
     listView = 'visible';
     mapMarkers3 = []
+    /* SAMPLE DATA
     mapMarkers = [
         {
             location: {
@@ -93,7 +94,7 @@ export default class Maps extends LightningElement {
             icon: 'standard:account',
         }
     ];
-
+    */
     mapOptions = {
         disableDefaultUI: true,
     };
@@ -102,22 +103,27 @@ export default class Maps extends LightningElement {
 
     connectedCallback(){
         this.subscribeMessage();
+        
+        //receives city value from user input on homepage city field
         this.userCity = sessionStorage.getItem("city");
     }
     
     subscribeMessage(){
+        //receives car data from turoCarTile component
         this.sub = subscribe(this.context, carMapMC, (message)=>{this.handleMessage(message)}, {scope: APPLICATION_SCOPE});
     }
 
     renderedCallback(){
+        //seems irrelevant.
         this.doc();
     }
 
+    //receives car data from turoCarTile component
     handleMessage(data){
-
-
+        //transforming data into the correct format.
         this.mapMarkers3 =  data.cars.map(item => {
             return {
+                //Displays location of cars
                 location: {
                     City: item.Car_Location__r.City__c || '',
                     PostalCode: item.Car_Location__r.Zip_Code__c || '',
@@ -125,12 +131,14 @@ export default class Maps extends LightningElement {
                     Street: item.Car_Location__r.Name || '',
                     Country: item.Car_Location__r.Country__c || '',
                 },
+                //Car info when user selects individual pin on map
                 title: `${item.Name}`,
                 description: `Daily Rate: $${item.Daily_Rate__c}<br>${item.Car_Location__r.Name},<br>${item.Car_Location__r.City__c}, ${item.Car_Location__r.State__c}, ${item.Car_Location__r.Zip_Code__c}`,
-
             }
         })
 
+
+        //if no car results are found
         if(this.mapMarkers3.length === 0 ){
             this.mapMarkers3.push({
                 location:{
@@ -169,9 +177,10 @@ export default class Maps extends LightningElement {
         this.valueHandler = event.detail.selectedMarkerValue
     }
 
+
+    //seems irrelevant. Function called on rendercallback?
     doc(){
         let el = this.template.querySelector('--none')
-        console.log('el',el)
     }
 
 }

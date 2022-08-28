@@ -32,7 +32,6 @@ context;
 
 sub;
 
-
 connectedCallback(){
     this.subscribeMessage();
 
@@ -41,10 +40,12 @@ connectedCallback(){
     console.log('filter city is', this.filteredCity)
 }
 
+//Subcribing to event from turo2Filter component
 subscribeMessage(){
     this.sub = subscribe(this.context, filterMC, (message)=>{this.handleMessage(message)}, {scope: APPLICATION_SCOPE});
 }
 
+//Stores data received from turo2Filter component published event
 handleMessage(data){
     this.maxRate = data.filters.maxRate;
     this.searchTerm = data.filters.searchKey
@@ -53,8 +54,11 @@ handleMessage(data){
 }
 
 disconnectedCallback(){
+    //unsubscribes from LMS
     unsubscribe(this.sub)
     this.sub = null
+
+    //clearing setInterval timeout
     clearTimeout(this.myTimeout);
 
     //clears sessionstorage of city input
@@ -63,23 +67,23 @@ disconnectedCallback(){
 }
 
 
-//calls apex controller to query car records
+//apex controller queries car records based on filter criteria set by user
 @wire(fetchCars, {search: '$searchTerm', rate: '$maxRate', 
                     type: '$filteredType' , make: '$filteredMake', userCity: '$filteredCity' })
     carHandler({data,error}){
         if(data){
             this.cars = data
+            //Sending data to turoMap component
             this.publishGoogleMap(data)
+            ////Sending data to turo2Filter component
             this.publishResultTotal(data)
-            console.log('cars from turo tile',this.cars)
         }
         if(error){
-            console.log('wire data error from turo tile')
             console.error(error.message)
         }
     }
 
-
+//when user clicks on individual car tiles
 tileHandler(event){
     const selectedCarId = (event.currentTarget.dataset.value)
     this.selectedCar = this.cars.filter(item=>{
@@ -91,7 +95,7 @@ tileHandler(event){
     this.publishCarinfo()
 }
     
-    //for google maps
+    ////Sends car data to turoMap component so that it can be displayed on map
     publishGoogleMap(){
         publish(this.context, carMapMC, {cars: this.cars})
     }
@@ -100,11 +104,12 @@ tileHandler(event){
     publishCarinfo(){
         publish(this.context, carMC, {car: this.selectedCar})
     }
-
+    //Sends how many vehicles found in search result to turo2Filter component
     publishResultTotal(){
         publish(this.context, resultMC, {results: this.cars.length})
     }
 
+    //used to display no results found if car search results is null
     get noResults(){
         if(this.cars.length === 0){
                 return true;

@@ -1,36 +1,42 @@
 <template>
     <div class="container">
+        <!--Section for input fields-->
         <div class="slds-grid slds-wrap searchContainer slds-grid_vertical-align-start">
+             <!--City text field-->
             <div class="slds-col slds-large-size_1-of-3 slds-size_12-of-12 inputTop input-container">
                 <label>Where (sample data for only Chicago or Denver)</label>
                 <input class= 'bottomBorder' type="text" placeholder="City..." onkeyup={cityHandler}>
             </div> 
+            <!--From date time field-->
             <div class="slds-col slds-large-size_1-of-3 slds-size_12-of-12 inputMiddle input-container">
                 <label>From</label>
                 <input class= 'bottomBorder' type="datetime-local" min={fromDate} onchange={fromDateHandler}>
 
             </div> 
             <div class="slds-col slds-large-size_1-of-3 inputBottom input-container slds-grid slds-show_large slds-grid_vertical-align-center">
+                <!--Until date time field on desktop-->
                 <div class="slds-col slds-size_3-of-4">
                     <label>Until</label>
                     <input class= 'bottomBorder' type="datetime-local" min={toDate} onchange={untilDateHandler}>
                 </div>  
+                <!--Search button on desktop-->
                 <div class="slds-col slds-size_1-of-4 slds-p-left_medium">
                     <lightning-icon icon-name="standard:search" alternative-text="Search" 
                         title="Search" class="circleButton" onclick={searchButton}></lightning-icon>
                 </div>  
             </div> 
-
+            <!--Until date time field on tablet/mobile-->
             <div class="slds-col slds-size_12-of-12 inputBottom inputMiddle input-container slds-hide_large">
                 <label>Until</label>
                 <input class= 'bottomBorder' type="datetime-local" min={toDate} onchange={untilDateHandler}> 
             </div> 
-
+            <!--Search button on tablet/mobile-->
             <div class="slds-col slds-size_12-of-12 buttonBottom slds-hide_large">
                 <button class="slds-button slds-button_brand slds-button_stretch " onclick={searchButton}>Search for Cars</button>
             </div> 
         </div>
 
+        <!--Displays banner for Desktop & Mobile-->
         <div class="banner">
         <picture>
             <source media="(min-width:600px)" srcset={banner}>
